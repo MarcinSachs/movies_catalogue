@@ -25,7 +25,15 @@ def get_popular_movies():
         print(f"API request failed: {e}")
         # Return a default structure so the app doesn't crash.
         return {"results": []}
-
+    
+def get_single_movie(movie_id):
+    endpoint = f"https://api.themoviedb.org/3/movie/{movie_id}?language=pl-PL"
+    api_token = os.environ.get("TMDB_API_TOKEN")
+    headers = {
+        "Authorization": f"Bearer {api_token}"
+    }
+    response = requests.get(endpoint, headers=headers)
+    return response.json()
 def get_movies(how_many):
     data = get_popular_movies()
     movies = data.get("results", [])
@@ -38,7 +46,8 @@ def get_poster_url(poster_path, poster_size="w342"):
 def get_movie_info(movie):
     title = movie.get("title")
     poster_url = get_poster_url(movie.get("poster_path"))
-    return {"title": title, "poster_url": poster_url}
+    description = movie.get("overview")
+    return {"title": title, "description": description, "poster_url": poster_url}
 
 
 

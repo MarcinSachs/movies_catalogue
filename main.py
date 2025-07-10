@@ -19,6 +19,11 @@ def contact():
 def about():
     return render_template("about.html")
 
+@app.route("/movie/<movie_id>")
+def movie_details(movie_id):
+    details = tmdb_client.get_single_movie(movie_id)
+    return render_template("movie_details.html", movie=details)
+
 @app.context_processor
 def utility_processor():
     def tmdb_image_url(path, size):
