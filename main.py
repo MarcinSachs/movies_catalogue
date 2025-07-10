@@ -4,8 +4,10 @@ import tmdb_client as tmdb_client
 
 app = Flask(__name__)
 
+
 @app.route('/')
 def homepage():
+<<<<<<< HEAD
     movies = tmdb_client.get_movies(8)
     return render_template("homepage.html", movies=movies)
 
@@ -14,6 +16,21 @@ def utility_processor():
     def tmdb_image_url(path, size):
         return tmdb_client.get_poster_url(path, size)
     return {"tmdb_image_url": tmdb_image_url}
+=======
+    movies = []
+    return render_template("homepage.html", movies=range(8))
+
+
+@app.route('/contact')
+def contact():
+    return render_template("contact.html")
+
+
+@app.route('/about')
+def about():
+    return render_template("about.html")
+
+>>>>>>> 6063d08a100ed04e7521530df4e5f0a4cb35dfb6
 
 if __name__ == '__main__':
     app.run(debug=True)
