@@ -39,6 +39,26 @@ def get_single_movie(movie_id):
     return response.json()
 
 
+def get_movie_images(movie_id):
+    endpoint = f"https://api.themoviedb.org/3/movie/{movie_id}/images"
+    api_token = os.environ.get("TMDB_API_TOKEN")
+    headers = {
+        "Authorization": f"Bearer {api_token}"
+    }
+    response = requests.get(endpoint, headers=headers)
+    return response.json().get("backdrops", [])
+
+
+def get_movie_watch_providers(movie_id):
+    endpoint = f"https://api.themoviedb.org/3/movie/{movie_id}/watch/providers"
+    api_token = os.environ.get("TMDB_API_TOKEN")
+    headers = {
+        "Authorization": f"Bearer {api_token}"
+    }
+    response = requests.get(endpoint, headers=headers)
+    return response.json().get("results", {}).get("PL", {}).get("flatrate", [])
+
+
 def get_single_movie_cast(movie_id):
     endpoint = f"https://api.themoviedb.org/3/movie/{movie_id}/credits?language=pl-PL"
     api_token = os.environ.get("TMDB_API_TOKEN")
@@ -46,7 +66,7 @@ def get_single_movie_cast(movie_id):
         "Authorization": f"Bearer {api_token}"
     }
     response = requests.get(endpoint, headers=headers)
-    return response.json()["cast"]
+    return response.json().get("cast", [])
 
 
 def get_movies(how_many):

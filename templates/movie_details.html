@@ -10,8 +10,25 @@
 
     <div class="row">
         <div class="col-md-8">
-            <img class="img-fluid" src="{{ tmdb_image_url(movie.backdrop_path, size="w780") }}"
-                alt="{{ movie.title }}">
+            <div id="carouselExample" class="carousel slide">
+                <div class="carousel-inner">
+                    {% for image in images %}
+                    <div class="carousel-item {% if loop.first %}active{% endif %}">
+                        <img src="{{ tmdb_image_url(image.file_path, size='w780') }}" alt="{{ movie.title }}" class="d-block w-100">
+                    </div>
+                    {% endfor %}
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
         </div>
         <div class="col-md-4">
             <h3>{{ movie.tagline }}</h3>
@@ -23,25 +40,53 @@
                 <dd>{{ movie.budget }}</dd>
                 <dt>Gatunek</dt>
                 <dd>{% for genre in movie.genres %}{{ genre.name }}, {% endfor %}</dd>
+                <dt>Dostępność</dt>
+                <dd>
+                    {% for provider in providers %}
+                    <img src="{{ tmdb_image_url(provider.logo_path, size='w45') }}" alt="{{ provider.provider_name }}">
+                    {% endfor %}
+                </dd>
             </dl>
         </div>
     </div>
+    {% if cast %}
     <h3 class="my-4">Obsada</h3>
-    <div class="row flex-row flex-nowrap">
-        {% for actor in cast %}
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            
-            <a href="#">
-                <figure class="figure">
-                    <img src="{{ tmdb_image_url(actor.profile_path, size="w185") }}" class="figure-img img-fluid rounded" alt="actor">
-                    <figcaption class="figure-caption">{{ actor.name }}</figcaption>
-                    <figcaption class="figure-caption">as {{ actor.character }}</figcaption>
-                </figure>
-            </a>
-            
+    <div id="castCarousel" class="carousel slide carousel-dark" data-bs-interval="false">
+        <div class="carousel-inner">
+            {% for actor_chunk in cast|batch(4) %}
+            <div class="carousel-item {% if loop.first %}active{% endif %}">
+                <div class="row justify-content-center">
+                    {% for actor in actor_chunk %}
+                    <div class="col-6 col-md-3">
+                        <a href="#">
+                            <figure class="figure">
+                                {% if actor.profile_path %}
+                                <img src="{{ tmdb_image_url(actor.profile_path, size='w185') }}"
+                                    class="figure-img img-fluid rounded" alt="{{ actor.name }}">
+                                {% else %}
+                                <img src="https://placehold.co/185x277?text=Brak+zdjęcia"
+                                    class="figure-img img-fluid rounded" alt="{{ actor.name }}">
+                                {% endif %}
+                                <figcaption class="figure-caption">{{ actor.name }}</figcaption>
+                                <figcaption class="figure-caption">as {{ actor.character }}</figcaption>
+                            </figure>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
         </div>
-        {% endfor %}
+        <button class="carousel-control-prev" type="button" data-bs-target="#castCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Poprzedni</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#castCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Następny</span>
+        </button>
     </div>
+    {% endif %}
 </div>
 
 {% endblock %}

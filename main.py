@@ -25,7 +25,9 @@ def about():
 def movie_details(movie_id):
     movie = tmdb_client.get_single_movie(movie_id)
     cast = tmdb_client.get_single_movie_cast(movie_id)
-    return render_template("movie_details.html", movie=movie, cast=cast)
+    images = tmdb_client.get_movie_images(movie_id)
+    providers = tmdb_client.get_movie_watch_providers(movie_id)
+    return render_template("movie_details.html", movie=movie, cast=cast, images=images, providers=providers)
 
 
 @app.context_processor
