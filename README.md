@@ -75,3 +75,4 @@ movies_catalogue/
     python main.py
     ```
     Otwórz przeglądarkę i przejdź pod adres `http://127.0.0.1:5000/`.
+    
