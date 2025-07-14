@@ -1,6 +1,9 @@
 import requests
 import random
 import os
+from dotenv import load_dotenv
+# Wczytuje zmienne z pliku .env i nadpisuje istniejące zmienne systemowe.
+load_dotenv(override=True)
 
 API_BASE_URL = "https://api.themoviedb.org/3"
 IMAGE_BASE_URL = "https://image.tmdb.org/t/p/"
@@ -9,6 +12,29 @@ IMAGE_BASE_URL = "https://image.tmdb.org/t/p/"
 def get_popular_movies():
     endpoint = f"{API_BASE_URL}/movie/popular?language=pl-PL"
     api_token = os.environ.get("TMDB_API_TOKEN")
+    if not api_token:
+        # If the token is not found raise an error.
+        raise ValueError(
+            "TMDB_API_TOKEN environment variable not set. You can get a token from https://www.themoviedb.org/settings/api.")
+
+    headers = {
+        "Authorization": f"Bearer {api_token}"
+    }
+    try:
+        response = requests.get(endpoint, headers=headers)
+        # This will raise an exception for 4xx and 5xx status codes.
+        response.raise_for_status()
+        return response.json()
+    except requests.exceptions.RequestException as e:
+        # Handle potential network errors.
+        print(f"API request failed: {e}")
+        # Return a default structure so the app doesn't crash.
+        return {"results": []}
+    
+def get_movies_list(list_tape):
+    endpoint = f"{API_BASE_URL}/movie/{list_tape}?language=pl-PL"
+    api_token = os.environ.get("TMDB_API_TOKEN")
+    print(f"Odczytany token z os.environ: '{api_token}'")
     if not api_token:
         # If the token is not found raise an error.
         raise ValueError(
@@ -69,8 +95,8 @@ def get_single_movie_cast(movie_id):
     return response.json().get("cast", [])
 
 
-def get_movies(how_many):
-    data = get_popular_movies()
+def get_movies(how_many, list_tape="popular"):
+    data = get_movies_list(list_tape)
     movies = data.get("results", [])
     random.shuffle(movies)
     return movies[:how_many]

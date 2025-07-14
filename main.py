@@ -1,5 +1,7 @@
 from flask import Flask, render_template
 import tmdb_client as tmdb_client
+from flask import request
+
 
 
 app = Flask(__name__)
@@ -7,8 +9,9 @@ app = Flask(__name__)
 
 @app.route('/')
 def homepage():
-    movies = tmdb_client.get_movies(8)
-    return render_template("homepage.html", movies=movies)
+    selected_list = request.args.get('list_type', 'popular')
+    movies = tmdb_client.get_movies(8, selected_list)
+    return render_template("homepage.html", movies=movies, current_list=selected_list)
 
 
 @app.route('/contact')
