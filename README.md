@@ -1,20 +1,25 @@
 # Biblioteka Filmów
 
-Prosta aplikacja webowa stworzona przy użyciu frameworka Flask, która prezentuje katalog filmów. Projekt został zrealizowany w celach edukacyjnych.
+Aplikacja webowa stworzona przy użyciu frameworka Flask, która prezentuje katalog filmów pobieranych z The Movie Database (TMDB) API.
 
 ## Zrzut ekranu
 ![alt text](screen.png)
 
 ## Funkcjonalności
 
-*   **Strona główna**: Wyświetla listę dostępnych filmów.
-*   **O serwisie**: Podstrona z informacjami o projekcie.
-*   **Kontakt**: Podstrona z formularzem kontaktowym.
+*   **Przeglądanie list filmów**: Możliwość przełączania się między listami: Popularne, Najwyżej oceniane, Wkrótce w kinach i Teraz w kinach.
+*   **Szczegóły filmu**: Dedykowana podstrona dla każdego filmu, zawierająca:
+    *   Opis i podstawowe informacje.
+    *   Galerię zdjęć (tła).
+    *   Listę obsady.
+    *   Informacje o dostępności na platformach streamingowych w Polsce.
+*   **Podstrony statyczne**: "O serwisie" i "Kontakt".
 
 ## Użyte technologie
 
 *   **Backend**: Python, Flask
-*   **Frontend**: HTML, Bootstrap 4
+*   **Frontend**: HTML, Bootstrap 5
+*   **API**: The Movie Database (TMDB)
 
 ## Struktura projektu
 
@@ -41,27 +46,32 @@ movies_catalogue/
 
 1.  **Sklonuj repozytorium:**
     ```bash
-    git clone <URL_repozytorium>
-    cd movies_project
+    git clone https://github.com/MarcinSachs/movies_catalogue.git
+    cd movies_catalogue
     ```
 
 2.  **Stwórz i aktywuj wirtualne środowisko:**
     ```bash
     # Windows
-    python -m venv movies_env
-    movies_env\Scripts\activate
+    python -m venv venv
+    venv\Scripts\activate
     ```
 
 3.  **Zainstaluj wymagane pakiety:**
-    (W tym projekcie jedyną zewnętrzną zależnością jest Flask. Warto stworzyć plik `requirements.txt`)
     ```bash
-    pip install Flask
+    pip install -r requirements.txt
     ```
 
-4.  **Uruchom aplikację:**
+4.  **Skonfiguruj klucz API:**
+    *   Zarejestruj się na [The Movie Database (TMDB)](https://www.themoviedb.org/signup) i uzyskaj klucz API (v4 auth Bearer Token) w ustawieniach swojego konta.
+    *   W głównym katalogu projektu (`movies_catalogue/`) utwórz plik o nazwie `.env`.
+    *   Dodaj do niego swój token w następującym formacie:
+        ```
+        TMDB_API_TOKEN="tutaj_wklej_swój_długi_token_okaziciela"
+        ```
+
+5.  **Uruchom aplikację:**
     ```bash
-    cd movies_catalogue
     python main.py
     ```
-
-5.  Otwórz przeglądarkę i przejdź pod adres `http://127.0.0.1:5000/`.
+    Otwórz przeglądarkę i przejdź pod adres `http://127.0.0.1:5000/`.
