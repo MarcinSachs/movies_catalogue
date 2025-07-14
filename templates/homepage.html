@@ -9,7 +9,7 @@
     </div>
     <div class="col-lg-12 mb-4"> 
         {% for list_key, list_name in available_lists.items() %}
-        <a href="{{ url_for('homepage', list_type=list_key) }}" class="btn btn-outline-info">{{ list_name }}</a>
+        <a href="{{ url_for('homepage', list_type=list_key) }}" class="btn {% if list_key == list_type %}btn-info{% else %}btn-outline-info{% endif %}" aria-pressed="{{ 'true' if list_key == list_type else 'false' }}">{{ list_name }}</a>
         {% endfor %}      
     </div>
     {% for movie in movies %}
