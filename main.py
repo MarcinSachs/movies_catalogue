@@ -5,13 +5,20 @@ from flask import request
 
 
 app = Flask(__name__)
+# Słownik z polskimi tłumaczeniami:
+available_lists = {
+        "popular": "Popularne",
+        "top_rated": "Najwyżej oceniane",
+        "upcoming": "Wkrótce w kinach",
+        "now_playing": "Teraz w kinach"
+    }
 
 
 @app.route('/')
 def homepage():
     selected_list = request.args.get('list_type', 'popular')
     movies = tmdb_client.get_movies(8, selected_list)
-    return render_template("homepage.html", movies=movies, current_list=selected_list)
+    return render_template("homepage.html", movies=movies, current_list=selected_list, available_lists=available_lists)
 
 
 @app.route('/contact')
