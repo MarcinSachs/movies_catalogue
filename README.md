@@ -19,15 +19,22 @@ Prosta aplikacja webowa stworzona przy użyciu frameworka Flask, która prezentu
 ## Struktura projektu
 
 ```
-movies_catalogue/
-├── static/
-│   └── (zasoby statyczne jak CSS, JS, obrazki)
-├── templates/
-│   ├── index.html       # Główny szablon strony
-│   ├── homepage.html    # Widok strony głównej
-│   ├── about.html       # Widok podstrony "O serwisie"
-│   └── contact.html     # Widok podstrony "Kontakt"
-└── main.py              # Główny plik aplikacji Flask
+movies_catalogue/ 
+├── static/ 
+│ └── css/ 
+│ └── main.css 
+├── templates/ 
+│ ├── index.html # Główny szablon strony 
+│ ├── homepage.html # Widok strony głównej 
+│ ├── movie_details.html # Widok szczegółów filmu 
+│ ├── about.html # Widok podstrony "O serwisie" 
+│ └── contact.html # Widok podstrony "Kontakt" 
+├── .env # Plik konfiguracyjny (lokalny) 
+├── .gitignore # Plik ignorowanych plików Git 
+├── main.py # Główny plik aplikacji Flask 
+├── tmdb_client.py # Klient do obsługi API TMDB 
+├── requirements.txt # Lista zależności projektu 
+└── README.md # Ten plik
 ```
 
 ## Instalacja i uruchomienie
