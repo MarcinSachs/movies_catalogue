@@ -5,6 +5,7 @@ Aplikacja webowa stworzona przy użyciu frameworka Flask, która prezentuje kata
 ## Zrzut ekranu
 ![alt text](screen.png)
 
+
 ## Funkcjonalności
 
 *   **Przeglądanie list filmów**: Możliwość przełączania się między listami: Popularne, Najwyżej oceniane, Wkrótce w kinach i Teraz w kinach.
@@ -75,4 +76,3 @@ movies_catalogue/
     python main.py
     ```
     Otwórz przeglądarkę i przejdź pod adres `http://127.0.0.1:5000/`.
-    
