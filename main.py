@@ -17,6 +17,9 @@ def homepage():
         "upcoming": "Wkrótce w kinach",
         "now_playing": "Teraz w kinach"
     }
+    if selected_list_type not in available_lists:
+        selected_list_type = "popular"
+        
     movies = tmdb_client.get_movies(8, selected_list_type)
     return render_template("homepage.html", movies=movies, available_lists=available_lists,
         list_type=selected_list_type)
