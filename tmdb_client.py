@@ -34,7 +34,6 @@ def get_popular_movies():
 def get_movies_list(list_tape):
     endpoint = f"{API_BASE_URL}/movie/{list_tape}?language=pl-PL"
     api_token = os.environ.get("TMDB_API_TOKEN")
-    print(f"Odczytany token z os.environ: '{api_token}'")
     if not api_token:
         # If the token is not found raise an error.
         raise ValueError(
