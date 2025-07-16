@@ -27,7 +27,11 @@
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <form class="d-flex ms-auto" action="/search" method="GET" role="search">
+                    <input class="form-control me-2" type="search" value="{% if search_query %}{{ search_query }}{% endif %}" placeholder="Szukaj" aria-label="Search" name="query">
+                    <button class="btn btn-outline-info" type="submit" aria-label="Szukaj"><i class='bx bx-search'></i></button>
+                </form>
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">                   
                     <li class="nav-item"><a class="nav-link active" aria-current="page"
                             href="{{ url_for('homepage') }}"><i class='bx bxs-home'></i> Główna</a></li>
                     <li class="nav-item"><a class="nav-link active" aria-current="page" href="{{ url_for('about') }}"><i

@@ -39,11 +39,16 @@ def about():
 def movie_details(movie_id):
     movie = tmdb_client.get_single_movie(movie_id)
     movie_info = tmdb_client.get_movie_info(movie)
-    #cast = tmdb_client.get_single_movie_cast(movie_id)
-    #images = tmdb_client.get_movie_images(movie_id)
-    #providers = tmdb_client.get_movie_watch_providers(movie_id)
-    #return render_template("movie_details.html", movie=movie, cast=cast, images=images, providers=providers)
     return render_template("movie_details.html", movie_info=movie_info)
+
+@app.route("/search")
+def search():
+    search_query = request.args.get("query", "")
+    movies = []
+    if search_query:
+        movies = tmdb_client.search_movies(search_query)
+    return render_template("search.html", movies=movies, search_query=search_query)
+
 
 
 @app.context_processor

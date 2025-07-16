@@ -127,3 +127,11 @@ def get_movie_info(movie):
         "genres": genres,
         "providers": providers
     }
+def search_movies(search_query):
+    endpoint = f"https://api.themoviedb.org/3/search/movie?query={search_query}&language=pl-PL"
+    api_token = os.environ.get("TMDB_API_TOKEN")
+    headers = {
+        "Authorization": f"Bearer {api_token}"
+    }
+    response = requests.get(endpoint, headers=headers)
+    return response.json().get("results", [])
