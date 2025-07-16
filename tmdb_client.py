@@ -107,7 +107,23 @@ def get_poster_url(poster_path, poster_size="w342"):
 
 
 def get_movie_info(movie):
+    id = movie.get("id")
     title = movie.get("title")
-    poster_url = get_poster_url(movie.get("poster_path"))
+    tigline = movie.get("tagline")
     description = movie.get("overview")
-    return {"title": title, "description": description, "poster_url": poster_url}
+    images = get_movie_images(id)
+    cast = get_single_movie_cast(id)
+    budget = movie.get("budget")
+    genres = movie.get("genres")
+    providers = get_movie_watch_providers(id)
+    return {
+        "id": id,
+        "title": title,
+        "tagline": tigline,
+        "description": description,
+        "images": images,
+        "cast": cast,
+        "budget": budget,
+        "genres": genres,
+        "providers": providers
+    }

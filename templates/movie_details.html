@@ -4,7 +4,7 @@
 <div class="container">
 
     <h1 class="my-4">
-        {{ movie.title }}
+        {{ movie_info.title }}
     </h1>
 
 
@@ -12,9 +12,9 @@
         <div class="col-md-8">
             <div id="carouselExample" class="carousel slide">
                 <div class="carousel-inner">
-                    {% for image in images %}
+                    {% for image in movie_info.images %}
                     <div class="carousel-item {% if loop.first %}active{% endif %}">
-                        <img src="{{ tmdb_image_url(image.file_path, size='w780') }}" alt="{{ movie.title }}" class="d-block w-100">
+                        <img src="{{ tmdb_image_url(image.file_path, size='w780') }}" alt="{{ movie_info.title }}" class="d-block w-100">
                     </div>
                     {% endfor %}
                 </div>
@@ -31,29 +31,29 @@
             </div>
         </div>
         <div class="col-md-4">
-            <h3>{{ movie.tagline }}</h3>
+            <h3>{{ movie_info.tagline }}</h3>
             <p>
-                {{ movie.overview}}
+                {{ movie_info.description}}
             </p>
             <dl>
                 <dt>Budżet</dt>
-                <dd>{{ movie.budget }}</dd>
+                <dd>{{ movie_info.budget }}</dd>
                 <dt>Gatunek</dt>
-                <dd>{% for genre in movie.genres %}{{ genre.name }}, {% endfor %}</dd>
+                <dd>{% for genre in movie_info.genres %}{{ genre.name }}, {% endfor %}</dd>
                 <dt>Dostępność</dt>
                 <dd>
-                    {% for provider in providers %}
+                    {% for provider in movie_info.providers %}
                     <img src="{{ tmdb_image_url(provider.logo_path, size='w45') }}" alt="{{ provider.provider_name }}">
                     {% endfor %}
                 </dd>
             </dl>
         </div>
     </div>
-    {% if cast %}
+    {% if movie_info.cast %}
     <h3 class="my-4">Obsada</h3>
     <div id="castCarousel" class="carousel slide carousel-dark" data-bs-interval="false">
         <div class="carousel-inner">
-            {% for actor_chunk in cast|batch(4) %}
+            {% for actor_chunk in movie_info.cast|batch(4) %}
             <div class="carousel-item {% if loop.first %}active{% endif %}">
                 <div class="row justify-content-center">
                     {% for actor in actor_chunk %}

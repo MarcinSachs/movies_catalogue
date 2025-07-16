@@ -38,10 +38,12 @@ def about():
 @app.route("/movie/<movie_id>")
 def movie_details(movie_id):
     movie = tmdb_client.get_single_movie(movie_id)
-    cast = tmdb_client.get_single_movie_cast(movie_id)
-    images = tmdb_client.get_movie_images(movie_id)
-    providers = tmdb_client.get_movie_watch_providers(movie_id)
-    return render_template("movie_details.html", movie=movie, cast=cast, images=images, providers=providers)
+    movie_info = tmdb_client.get_movie_info(movie)
+    #cast = tmdb_client.get_single_movie_cast(movie_id)
+    #images = tmdb_client.get_movie_images(movie_id)
+    #providers = tmdb_client.get_movie_watch_providers(movie_id)
+    #return render_template("movie_details.html", movie=movie, cast=cast, images=images, providers=providers)
+    return render_template("movie_details.html", movie_info=movie_info)
 
 
 @app.context_processor
