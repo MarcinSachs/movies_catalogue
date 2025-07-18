@@ -9,7 +9,6 @@ API_BASE_URL = "https://api.themoviedb.org/3"
 IMAGE_BASE_URL = "https://image.tmdb.org/t/p/"
 
 
-
 def get_popular_movies():
     endpoint = f"{API_BASE_URL}/movie/popular?language=pl-PL"
     api_token = os.environ.get("TMDB_API_TOKEN")

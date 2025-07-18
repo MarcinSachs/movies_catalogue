@@ -1,21 +1,36 @@
 from flask import Flask, render_template
 import tmdb_client as tmdb_client
 from flask import request
-
+from flask_babel import Babel, _
 
 
 app = Flask(__name__)
 
 
+
+app.config['LANGUAGES'] = {
+    'en_US': 'English',
+    'pl_PL': 'Polski'
+}
+app.config['BABEL_DEFAULT_LOCALE'] = 'en_US'
+app.config['BABEL_TRANSLATION_DIRECTORIES'] = 'locales'
+
+
+def get_locale():
+    #return request.accept_languages.best_match(app.config['LANGUAGES'].keys())
+    return 'pl_PL'
+
+
+babel = Babel(app, locale_selector=get_locale)
+
 @app.route('/')
 def homepage():
     selected_list_type = request.args.get('list_type', 'popular')
-     # Słownik z dostępnymi listami i ich polskimi nazwami
     available_lists = {
-        "popular": "Popularne",
-        "top_rated": "Najwyżej oceniane",
-        "upcoming": "Wkrótce w kinach",
-        "now_playing": "Teraz w kinach"
+        "popular": _("Popular"),
+        "top_rated": _("Top Rated"),
+        "upcoming": _("Upcoming"),
+        "now_playing": _("Now Playing")
     }
     if selected_list_type not in available_lists:
         selected_list_type = "popular"
