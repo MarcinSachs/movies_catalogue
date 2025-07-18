@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Biblioteka Filmów</title>
+    <title>{{ _("Movies Library") }}</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='assets/favicon.ico') }}" />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
@@ -21,8 +21,7 @@
     <!-- Responsive navbar-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="{{ url_for('homepage') }}"><i class='bx bxs-movie-play'></i> Biblioteka
-                Filmów</a>
+            <a class="navbar-brand" href="{{ url_for('homepage') }}"><i class='bx bxs-movie-play'></i> {{ _("Movies Library") }}</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
@@ -33,11 +32,11 @@
                 </form>
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">                   
                     <li class="nav-item"><a class="nav-link active" aria-current="page"
-                            href="{{ url_for('homepage') }}"><i class='bx bxs-home'></i> Główna</a></li>
+                            href="{{ url_for('homepage') }}"><i class='bx bxs-home'></i> {{ _("Main") }}</a></li>
                     <li class="nav-item"><a class="nav-link active" aria-current="page" href="{{ url_for('about') }}"><i
-                                class='bx bxs-info-square'></i> O serwisie</a></li>
+                                class='bx bxs-info-square'></i> {{ _("About") }}</a></li>
                     <li class="nav-item"><a class="nav-link active" aria-current="page"
-                            href="{{ url_for('contact') }}"><i class='bx bxs-envelope'></i> Kontakt</a></li>
+                            href="{{ url_for('contact') }}"><i class='bx bxs-envelope'></i> {{ _("Contact") }}</a></li>
 
 
                 </ul>

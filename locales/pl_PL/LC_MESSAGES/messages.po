@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-07-18 09:45+0200\n"
+"POT-Creation-Date: 2025-07-18 12:28+0200\n"
 "PO-Revision-Date: 2025-07-18 09:46+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: pl_PL\n"
@@ -19,19 +19,36 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.17.0\n"
 
-#: movies_catalogue/main.py:29
+#: movies_catalogue/main.py:30
 msgid "Popular"
 msgstr "Popularne"
 
-#: movies_catalogue/main.py:30
-msgid "Top Rated"
-msgstr "Najwyżej oceniane "
-
 #: movies_catalogue/main.py:31
-msgid "Upcoming"
-msgstr "Wkrótce w kinach"
+msgid "Top Rated"
+msgstr "Najlepiej Oceniane "
 
 #: movies_catalogue/main.py:32
+msgid "Upcoming"
+msgstr "Nadchodzące"
+
+#: movies_catalogue/main.py:33
 msgid "Now Playing"
-msgstr "Teraz w kinach"
+msgstr "W Kinach"
+
+#: movies_catalogue/templates/index.html:9
+#: movies_catalogue/templates/index.html:24
+msgid "Movies Library"
+msgstr "Biblioteka Filmów"
+
+#: movies_catalogue/templates/index.html:35
+msgid "Main"
+msgstr "Główna"
+
+#: movies_catalogue/templates/index.html:37
+msgid "About"
+msgstr "O Serwisie"
+
+#: movies_catalogue/templates/index.html:39
+msgid "Contact"
+msgstr "Kontakt"
 
