@@ -21,12 +21,12 @@
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
                     data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
+                    <span class="visually-hidden">{{ _("Previous") }}</span>
                 </button>
                 <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
                     data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
+                    <span class="visually-hidden">{{ _("Next") }}</span>
                 </button>
             </div>
         </div>
@@ -36,11 +36,11 @@
                 {{ movie_info.description}}
             </p>
             <dl>
-                <dt>Budżet</dt>
+                <dt>{{ _("Budget") }}</dt>
                 <dd>{{ movie_info.budget }}</dd>
-                <dt>Gatunek</dt>
+                <dt>{{ _("Genre") }}</dt>
                 <dd>{% for genre in movie_info.genres %}{{ genre.name }}, {% endfor %}</dd>
-                <dt>Dostępność</dt>
+                <dt>{{ _("Availability") }}</dt>
                 <dd>
                     {% for provider in movie_info.providers %}
                     <img src="{{ tmdb_image_url(provider.logo_path, size='w45') }}" alt="{{ provider.provider_name }}">
@@ -50,7 +50,7 @@
         </div>
     </div>
     {% if movie_info.cast %}
-    <h3 class="my-4">Obsada</h3>
+    <h3 class="my-4">{{ _("Cast") }}</h3>
     <div id="castCarousel" class="carousel slide carousel-dark" data-bs-interval="false">
         <div class="carousel-inner">
             {% for actor_chunk in movie_info.cast|batch(4) %}
@@ -64,11 +64,11 @@
                                 <img src="{{ tmdb_image_url(actor.profile_path, size='w185') }}"
                                     class="figure-img img-fluid rounded" alt="{{ actor.name }}">
                                 {% else %}
-                                <img src="https://placehold.co/185x277?text=Brak+zdjęcia"
+                                <img src="https://placehold.co/185x277?text={{ _('No+photo') }}"
                                     class="figure-img img-fluid rounded" alt="{{ actor.name }}">
                                 {% endif %}
                                 <figcaption class="figure-caption">{{ actor.name }}</figcaption>
-                                <figcaption class="figure-caption">as {{ actor.character }}</figcaption>
+                                <figcaption class="figure-caption">{{ _("as") }} {{ actor.character }}</figcaption>
                             </figure>
                         </a>
                     </div>
@@ -79,11 +79,11 @@
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#castCarousel" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Poprzedni</span>
+            <span class="visually-hidden">{{ _("Previous") }}</span>
         </button>
         <button class="carousel-control-next" type="button" data-bs-target="#castCarousel" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Następny</span>
+            <span class="visually-hidden">{{ _("Next") }}</span>
         </button>
     </div>
     {% endif %}

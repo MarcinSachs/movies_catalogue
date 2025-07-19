@@ -4,12 +4,12 @@
 
 <div class="row">
     <div class="col-lg-12 text-center">
-        <h1 class="mt-5">Biblioteka filmów</h1>
-        <p class="lead">Znajdziesz tutaj tylko najlepsze tytuły!</p>
+        <h1 class="mt-5">{{ _("Movies Library") }}</h1>
+        <p class="lead">{{ _("You will find only the best titles here!") }}</p>
     </div>
     <div class="col-lg-12 mb-4"> 
         {% for list_key, list_name in available_lists.items() %}
-        <a href="{{ url_for('homepage', list_type=list_key) }}" class="btn {% if list_key == list_type %}btn-info{% else %}btn-outline-info{% endif %}" aria-pressed="{{ 'true' if list_key == list_type else 'false' }}">{{ list_name }}</a>
+        <a href="{{ url_for('homepage', list_type=list_key) }}" class="btn {% if list_key == list_type %}btn-info{% else %}btn-outline-info{% endif %}" aria-pressed="{{ 'true' if list_key == list_type else 'false' }}">{{ _(list_name) }}</a>
         {% endfor %}      
     </div>
     {% for movie in movies %}
@@ -21,7 +21,7 @@
                 <p>{{movie.overview}}</p>
             </div>
             <div class="card-footer text-center">
-                <a href="{{ url_for('movie_details', movie_id=movie.id) }}" class="btn btn-primary">Pokaż więcej</a>
+                <a href="{{ url_for('movie_details', movie_id=movie.id) }}" class="btn btn-primary">{{ _("Show more") }}</a>
             </div>
         </div>
     </div>

@@ -7,7 +7,6 @@ from flask_babel import Babel, _
 app = Flask(__name__)
 
 
-
 app.config['LANGUAGES'] = {
     'en_US': 'English',
     'pl_PL': 'Polski'
@@ -17,11 +16,12 @@ app.config['BABEL_TRANSLATION_DIRECTORIES'] = 'locales'
 
 
 def get_locale():
-    #return request.accept_languages.best_match(app.config['LANGUAGES'].keys())
+    # return request.accept_languages.best_match(app.config['LANGUAGES'].keys())
     return 'pl_PL'
 
 
 babel = Babel(app, locale_selector=get_locale)
+
 
 @app.route('/')
 def homepage():
@@ -34,10 +34,10 @@ def homepage():
     }
     if selected_list_type not in available_lists:
         selected_list_type = "popular"
-        
+
     movies = tmdb_client.get_movies(8, selected_list_type)
     return render_template("homepage.html", movies=movies, available_lists=available_lists,
-        list_type=selected_list_type)
+                           list_type=selected_list_type)
 
 
 @app.route('/contact')
@@ -56,6 +56,7 @@ def movie_details(movie_id):
     movie_info = tmdb_client.get_movie_info(movie)
     return render_template("movie_details.html", movie_info=movie_info)
 
+
 @app.route("/search")
 def search():
     search_query = request.args.get("query", "")
@@ -63,7 +64,6 @@ def search():
     if search_query:
         movies = tmdb_client.search_movies(search_query)
     return render_template("search.html", movies=movies, search_query=search_query)
-
 
 
 @app.context_processor

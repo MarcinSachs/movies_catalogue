@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-07-18 12:28+0200\n"
-"PO-Revision-Date: 2025-07-18 09:46+0200\n"
+"POT-Creation-Date: 2025-07-18 22:38+0200\n"
+"PO-Revision-Date: 2025-07-18 22:42+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: pl_PL\n"
 "Language-Team: pl_PL <LL@li.org>\n"
@@ -19,36 +19,172 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.17.0\n"
 
-#: movies_catalogue/main.py:30
+#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/main.py:30
 msgid "Popular"
 msgstr "Popularne"
 
-#: movies_catalogue/main.py:31
+#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/main.py:31
 msgid "Top Rated"
-msgstr "Najlepiej Oceniane "
+msgstr "Najwyżej Oceniane"
 
-#: movies_catalogue/main.py:32
+#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/main.py:32
 msgid "Upcoming"
 msgstr "Nadchodzące"
 
-#: movies_catalogue/main.py:33
+#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/main.py:33
 msgid "Now Playing"
 msgstr "W Kinach"
 
-#: movies_catalogue/templates/index.html:9
-#: movies_catalogue/templates/index.html:24
-msgid "Movies Library"
-msgstr "Biblioteka Filmów"
-
-#: movies_catalogue/templates/index.html:35
-msgid "Main"
-msgstr "Główna"
-
-#: movies_catalogue/templates/index.html:37
+#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/about.html:7
+#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/index.html:37
 msgid "About"
-msgstr "O Serwisie"
+msgstr "O Nas"
 
-#: movies_catalogue/templates/index.html:39
+#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/about.html:8
+msgid "Learn more about our passion for movies and how this site was created."
+msgstr "Dowiedz się więcej o naszej pasji do filmów i o tym, jak powstała ta strona."
+
+#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/about.html:14
+msgid "Our mission"
+msgstr "Nasza misja"
+
+#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/about.html:15
+msgid ""
+"Welcome to \"Movies Library\"! We are a group of cinema enthusiasts who "
+"decided to create a place where\n"
+"            you can easily and pleasantly browse a collection of the "
+"best, carefully selected titles. Our goal is to\n"
+"            share our passion for film and make it easier to discover "
+"cinematic gems."
+msgstr ""
+"Witaj w \"Bibliotece Filmów\"! Jesteśmy grupą entuzjastów kina, którzy "
+"postanowili stworzyć miejsce, w którym\n"
+"            możesz łatwo i przyjemnie przeglądać kolekcję najlepszych, "
+"starannie wyselekcjonowanych tytułów. Naszym celem jest\n"
+"            dzielenie się naszą pasją do filmu i ułatwianie odkrywania "
+"perełek kinematografii."
+
+#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/about.html:19
+msgid "Technology"
+msgstr "Technologia"
+
+#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/about.html:20
+msgid ""
+"This site was created as part of learning and improving programming "
+"skills. It was built using modern\n"
+"            web technologies, including the Flask framework in Python and"
+" the Bootstrap library for styling."
+msgstr ""
+"Ta strona została stworzona w ramach nauki i doskonalenia umiejętności "
+"programistycznych. Została zbudowana przy użyciu nowoczesnych\n"
+"            technologii internetowych, w tym frameworka Flask w Pythonie "
+"oraz biblioteki Bootstrap do stylizacji."
+
+#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/about.html:24
+msgid "\"Film is life with the dull bits cut out.\""
+msgstr "\"Film to życie, z którego wycięto nudne fragmenty.\""
+
+#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/contact.html:7
+#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/index.html:39
 msgid "Contact"
 msgstr "Kontakt"
 
+#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/contact.html:8
+msgid "Have questions? Write to us!"
+msgstr "Masz pytania? Napisz do nas!"
+
+#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/contact.html:14
+msgid ""
+"If you have any questions, suggestions, or want to contact us about "
+"another matter, please use the form\n"
+"            below."
+msgstr ""
+"Jeśli masz jakieś pytania, sugestie lub chcesz się z nami skontaktować w "
+"innej sprawie, skorzystaj z formularza\n"
+"            poniżej."
+
+#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/contact.html:18
+msgid "Full name"
+msgstr "Imię i nazwisko"
+
+#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/contact.html:19
+msgid "Enter your full name"
+msgstr "Wpisz swoje imię i nazwisko"
+
+#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/contact.html:22
+msgid "Email address"
+msgstr "Adres email"
+
+#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/contact.html:23
+msgid "Enter your email address"
+msgstr "Wpisz swój adres email"
+
+#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/contact.html:26
+msgid "Message"
+msgstr "Wiadomość"
+
+#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/contact.html:28
+msgid "Enter your message"
+msgstr "Wpisz swoją wiadomość"
+
+#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/contact.html:30
+msgid "Send"
+msgstr "Wyślij"
+
+#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/homepage.html:7
+#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/index.html:9
+#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/index.html:24
+#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/search.html:7
+msgid "Movies Library"
+msgstr "Biblioteka Filmów"
+
+#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/homepage.html:8
+msgid "You will find only the best titles here!"
+msgstr "Znajdziesz tu tylko najlepsze tytuły!"
+
+#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/homepage.html:24
+#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/search.html:19
+msgid "Show more"
+msgstr "Pokaż więcej"
+
+#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/index.html:35
+msgid "Main"
+msgstr "Główna"
+
+#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/movie_details.html:24
+#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/movie_details.html:82
+msgid "Previous"
+msgstr "Poprzedni"
+
+#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/movie_details.html:29
+#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/movie_details.html:86
+msgid "Next"
+msgstr "Następny"
+
+#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/movie_details.html:39
+msgid "Budget"
+msgstr "Budżet"
+
+#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/movie_details.html:41
+msgid "Genre"
+msgstr "Gatunek"
+
+#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/movie_details.html:43
+msgid "Availability"
+msgstr "Dostępność"
+
+#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/movie_details.html:53
+msgid "Cast"
+msgstr "Obsada"
+
+#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/movie_details.html:67
+msgid "No+photo"
+msgstr "Brak+zdjęcia"
+
+#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/movie_details.html:71
+msgid "as"
+msgstr "jako"
+
+#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/search.html:8
+msgid "Search results for query:"
+msgstr "Wyniki wyszukiwania dla zapytania:"
