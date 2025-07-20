@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-07-19 11:10+0200\n"
+"POT-Creation-Date: 2025-07-20 20:09+0200\n"
 "PO-Revision-Date: 2025-07-18 22:42+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: pl_PL\n"
@@ -19,24 +19,24 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.17.0\n"
 
-#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/main.py:30
+#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/main.py:41
 msgid "Popular"
 msgstr "Popularne"
 
-#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/main.py:31
+#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/main.py:42
 msgid "Top Rated"
 msgstr "Najwyżej Oceniane"
 
-#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/main.py:32
+#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/main.py:43
 msgid "Upcoming"
 msgstr "Nadchodzące"
 
-#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/main.py:33
+#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/main.py:44
 msgid "Now Playing"
 msgstr "W Kinach"
 
 #: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/about.html:7
-#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/index.html:37
+#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/index.html:64
 msgid "About"
 msgstr "O Nas"
 
@@ -87,7 +87,7 @@ msgid "\"Film is life with the dull bits cut out.\""
 msgstr "\"Film to życie, z którego wycięto nudne fragmenty.\""
 
 #: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/contact.html:7
-#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/index.html:39
+#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/index.html:66
 msgid "Contact"
 msgstr "Kontakt"
 
@@ -133,27 +133,40 @@ msgstr "Wpisz swoją wiadomość"
 msgid "Send"
 msgstr "Wyślij"
 
+#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/favorites.html:7
 #: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/homepage.html:7
 #: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/index.html:9
-#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/index.html:24
+#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/index.html:26
 #: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/search.html:7
+#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/today.html:7
 msgid "Movies Library"
 msgstr "Biblioteka Filmów"
+
+#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/favorites.html:8
+#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/index.html:62
+msgid "Favorites"
+msgstr "Ulubione"
+
+#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/favorites.html:20
+#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/homepage.html:27
+#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/search.html:19
+msgid "Show more"
+msgstr "Pokaż więcej"
 
 #: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/homepage.html:8
 msgid "You will find only the best titles here!"
 msgstr "Znajdziesz tu tylko najlepsze tytuły!"
 
-#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/homepage.html:24
-#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/search.html:19
-msgid "Show more"
-msgstr "Pokaż więcej"
-
-#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/index.html:30
+#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/index.html:33
+#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/index.html:34
 msgid "Search"
 msgstr "Szukaj"
 
-#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/index.html:35
+#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/index.html:46
+msgid "Language"
+msgstr "Język"
+
+#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/index.html:60
 msgid "Main"
 msgstr "Główna"
 
@@ -194,4 +207,8 @@ msgstr "jako"
 #: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/search.html:8
 msgid "Search results for query:"
 msgstr "Wyniki wyszukiwania dla zapytania:"
+
+#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/today.html:8
+msgid "Series broadcast on"
+msgstr "Seriale emitowane w dniu"
 

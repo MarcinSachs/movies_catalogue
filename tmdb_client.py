@@ -140,3 +140,13 @@ def search_movies(search_query, lang_code=None):
     }
     response = requests.get(endpoint, headers=headers)
     return response.json().get("results", [])
+
+
+def get_airing_today(lang_code=None):
+    endpoint = f"https://api.themoviedb.org/3/tv/airing_today?language={lang_code}"
+    api_token = os.environ.get("TMDB_API_TOKEN")
+    headers = {
+        "Authorization": f"Bearer {api_token}"
+    }
+    response = requests.get(endpoint, headers=headers)
+    return response.json().get("results", [])

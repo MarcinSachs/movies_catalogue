@@ -1,1 +1,1 @@
-movie_details
+set_favorite

@@ -5,14 +5,7 @@
 <div class="row">
     <div class="col-lg-12 text-center">
         <h1 class="mt-5">{{ _("Movies Library") }}</h1>
-        <p class="lead">{{ _("You will find only the best titles here!") }}</p>
-    </div>
-    <div class="col-lg-12 mb-4">
-        {% for list_key, list_name in available_lists.items() %}
-        <a href="{{ url_for('homepage', list_type=list_key) }}"
-            class="btn {% if list_key == list_type %}btn-info{% else %}btn-outline-info{% endif %}"
-            aria-pressed="{{ 'true' if list_key == list_type else 'false' }}">{{ _(list_name) }}</a>
-        {% endfor %}
+        <p class="lead">{{ _("Favorites") }}</p>
     </div>
     {% for movie in movies %}
     <div class="col-lg-3 col-md-6 mb-4">

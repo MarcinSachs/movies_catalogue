@@ -2,6 +2,7 @@ from flask import Flask, render_template
 import tmdb_client as tmdb_client
 from flask import request, redirect, url_for, make_response, g
 from flask_babel import Babel, _
+import datetime
 
 
 app = Flask(__name__)
@@ -13,6 +14,8 @@ app.config['LANGUAGES'] = {
 }
 app.config['BABEL_DEFAULT_LOCALE'] = 'en_US'
 app.config['BABEL_TRANSLATION_DIRECTORIES'] = 'locales'
+
+FAVORITES = set()
 
 
 def get_locale():
@@ -59,6 +62,27 @@ def set_language():
     return redirect(url_for('homepage'))
 
 
+@app.route('/add_to_favorites', methods=['POST'])
+def add_to_favorites():
+    movie_id = request.form.get('movie_id')
+    if movie_id and movie_id not in FAVORITES:
+        FAVORITES.add(movie_id)
+    return redirect(url_for('homepage'))
+
+
+@app.route("/favorites")
+def show_favorites():
+    if FAVORITES:
+        movies = []
+        for movie_id in FAVORITES:
+            movie_details = tmdb_client.get_single_movie(
+                movie_id, lang_code=g.api_language)
+            movies.append(movie_details)
+    else:
+        movies = []
+    return render_template("favorites.html", movies=movies)
+
+
 @app.route('/contact')
 def contact():
     return render_template("contact.html")
@@ -84,6 +108,13 @@ def search():
         movies = tmdb_client.search_movies(
             search_query, lang_code=g.api_language)
     return render_template("search.html", movies=movies, search_query=search_query)
+
+
+@app.route('/today')
+def today():
+    movies = tmdb_client.get_airing_today(lang_code=g.api_language)
+    today = datetime.date.today()
+    return render_template("today.html", movies=movies, today=today)
 
 
 @app.context_processor
