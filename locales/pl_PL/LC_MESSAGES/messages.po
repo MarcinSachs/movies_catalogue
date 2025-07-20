@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-07-18 22:38+0200\n"
+"POT-Creation-Date: 2025-07-19 11:10+0200\n"
 "PO-Revision-Date: 2025-07-18 22:42+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: pl_PL\n"
@@ -42,7 +42,9 @@ msgstr "O Nas"
 
 #: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/about.html:8
 msgid "Learn more about our passion for movies and how this site was created."
-msgstr "Dowiedz się więcej o naszej pasji do filmów i o tym, jak powstała ta strona."
+msgstr ""
+"Dowiedz się więcej o naszej pasji do filmów i o tym, jak powstała ta "
+"strona."
 
 #: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/about.html:14
 msgid "Our mission"
@@ -147,6 +149,10 @@ msgstr "Znajdziesz tu tylko najlepsze tytuły!"
 msgid "Show more"
 msgstr "Pokaż więcej"
 
+#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/index.html:30
+msgid "Search"
+msgstr "Szukaj"
+
 #: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/index.html:35
 msgid "Main"
 msgstr "Główna"
@@ -188,3 +194,4 @@ msgstr "jako"
 #: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/search.html:8
 msgid "Search results for query:"
 msgstr "Wyniki wyszukiwania dla zapytania:"
+

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-07-18 22:38+0200\n"
+"POT-Creation-Date: 2025-07-19 11:10+0200\n"
 "PO-Revision-Date: 2025-07-18 22:42+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en_US\n"
@@ -145,6 +145,10 @@ msgstr "You will find only the best titles here!"
 #: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/search.html:19
 msgid "Show more"
 msgstr "Show more"
+
+#: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/index.html:30
+msgid "Search"
+msgstr "Search"
 
 #: c:/Users/Marcin/Documents/Python/Kodilla/movies_project/movies_catalogue/templates/index.html:35
 msgid "Main"

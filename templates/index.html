@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ g.lang_code }}">
 
 <head>
     <meta charset="utf-8" />
@@ -15,6 +15,8 @@
         integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
     <!-- Boxicons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Flag Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css" />
 </head>
 
 <body>
@@ -27,10 +29,33 @@
                 aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <form class="d-flex ms-auto" action="/search" method="GET" role="search">
-                    <input class="form-control me-2" type="search" value="{% if search_query %}{{ search_query }}{% endif %}" placeholder="Szukaj" aria-label="Search" name="query">
-                    <button class="btn btn-outline-info" type="submit" aria-label="Szukaj"><i class='bx bx-search'></i></button>
+                    <input class="form-control me-2" type="search" 
+                        value="{% if search_query %}{{ search_query }}{% endif %}" placeholder="{{ _("Search") }}"
+                        aria-label="{{ _("Search") }}" name="query">
+                    <button class="btn btn-outline-info" type="submit" aria-label="Szukaj"><i
+                            class='bx bx-search'></i></button>
                 </form>
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">                   
+
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" id="languageDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            {% if g.lang_code %}
+                        <span class="fi fi-{{ g.lang_code[3:].lower() }} me-2"></span>{{ config.LANGUAGES.get(g.lang_code) }}
+                        {% else %}
+                        <i class='bx bx-world'></i> {{ _("Language") }}
+                        {% endif %}
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                            {% for lang_code, lang_name in config.LANGUAGES.items() %}
+                                <li>
+                                    <form method="POST" action="{{ url_for('set_language') }}">
+                                        <input type="hidden" name="lang" value="{{ lang_code }}">
+                                        <button type="submit" class="dropdown-item"><span class="fi fi-{{ lang_code[3:].lower() }} me-2"></span>{{ lang_name }}</button>
+                                    </form>
+                                </li>
+                            {% endfor %}
+                        </ul>
                     <li class="nav-item"><a class="nav-link active" aria-current="page"
                             href="{{ url_for('homepage') }}"><i class='bx bxs-home'></i> {{ _("Main") }}</a></li>
                     <li class="nav-item"><a class="nav-link active" aria-current="page" href="{{ url_for('about') }}"><i
