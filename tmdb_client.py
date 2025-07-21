@@ -2,8 +2,7 @@ import requests
 import random
 import os
 from dotenv import load_dotenv
-# Wczytuje zmienne z pliku .env i nadpisuje istniejące zmienne systemowe.
-load_dotenv(override=True)
+
 
 API_BASE_URL = "https://api.themoviedb.org/3"
 IMAGE_BASE_URL = "https://image.tmdb.org/t/p/"
@@ -33,8 +32,6 @@ def get_popular_movies():
 
 
 def get_movies_list(list_type, lang_code):
-    print(
-        f"Fetching movies list of type: {list_type} with language code: {lang_code}")
     endpoint = f"{API_BASE_URL}/movie/{list_type}?language={lang_code}"
     api_token = os.environ.get("TMDB_API_TOKEN")
     if not api_token:
@@ -98,7 +95,6 @@ def get_single_movie_cast(movie_id, lang_code):
 
 
 def get_movies(how_many, list_tape="popular", lang_code=None):
-    print(lang_code)
     data = get_movies_list(list_tape, lang_code)
     movies = data.get("results", [])
     random.shuffle(movies)

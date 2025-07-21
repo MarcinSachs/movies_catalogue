@@ -1,9 +1,13 @@
 from flask import Flask, render_template
 import tmdb_client as tmdb_client
-from flask import request, redirect, url_for, make_response, g
+from flask import request, redirect, url_for, make_response, g, flash
 from flask_babel import Babel, _
 import datetime
+import os
+from dotenv import load_dotenv
 
+# Wczytuje zmienne z pliku .env i nadpisuje istniejące zmienne systemowe.
+load_dotenv(override=True)
 
 app = Flask(__name__)
 
@@ -14,14 +18,15 @@ app.config['LANGUAGES'] = {
 }
 app.config['BABEL_DEFAULT_LOCALE'] = 'en_US'
 app.config['BABEL_TRANSLATION_DIRECTORIES'] = 'locales'
+app.secret_key = os.environ.get("SECRET_KEY", "default_secret_key")
+
+
 
 FAVORITES = set()
 
 
 def get_locale():
-    if 'lang' in request.cookies:
-        return request.cookies['lang']
-    return request.cookies['lang']
+    return request.cookies.get('lang', app.config['BABEL_DEFAULT_LOCALE'])
 
 
 babel = Babel(app, locale_selector=get_locale)
@@ -35,7 +40,6 @@ def before_request():
 
 @app.route('/')
 def homepage():
-    g.lang_code = get_locale()
     selected_list_type = request.args.get('list_type', 'popular')
     available_lists = {
         "popular": _("Popular"),
@@ -65,8 +69,12 @@ def set_language():
 @app.route('/add_to_favorites', methods=['POST'])
 def add_to_favorites():
     movie_id = request.form.get('movie_id')
+    movie_title = request.form.get('movie_title')
     if movie_id and movie_id not in FAVORITES:
         FAVORITES.add(movie_id)
+        flash(movie_title + ' ' + _('was added to favorites'))
+    elif movie_id in FAVORITES:
+        flash(movie_title + ' ' + _('already exists in favorites'))
     return redirect(url_for('homepage'))
 
 
