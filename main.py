@@ -21,7 +21,6 @@ app.config['BABEL_TRANSLATION_DIRECTORIES'] = 'locales'
 app.secret_key = os.environ.get("SECRET_KEY", "default_secret_key")
 
 
-
 FAVORITES = set()
 
 

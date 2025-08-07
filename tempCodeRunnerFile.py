@@ -1,1 +1,1 @@
-set_favorite
+from dotenv import load_dotenv
