@@ -14,9 +14,9 @@ def test_get_movies_list(monkeypatch):
     response = requests_mock.return_value
     # Przysłaniamy wynik wywołania metody .json()
     response.json.return_value = mock_movies_list
-    monkeypatch.setattr("tmdb_client.requests.get", requests_mock)
+    monkeypatch.setattr(tmdb_client.requests, "get", requests_mock)
 
-    movies_list = tmdb_client.get_movies_list(list_type="popular")
+    movies_list = tmdb_client.get_movies_list(list_type="popular", lang_code="en-US")
     assert movies_list == mock_movies_list
 
 
@@ -35,10 +35,46 @@ def test_get_movies_list_type_popular():
         list_type="popular", lang_code="en-US")
     assert movies_list is not None
 
+def test_call_tmdb_api(monkeypatch):
+    mock_result = {"results": []}
+    requests_mock = Mock()
+    response = requests_mock.return_value
+    response.json.return_value = mock_result
+    monkeypatch.setattr(tmdb_client.requests, "get", requests_mock)
+    
+    rsult = tmdb_client.call_tmdb_api("endpoint")
+    assert rsult == mock_result
 
-def some_function_to_mock():
-    raise Exception("Original was called")
 
 
-def test_mocking():
-    result = some_function_to_mock()
+
+def test_get_movie_images(monkeypatch):
+    mock_images = ["image1", "image2"]
+    requests_mock = Mock()
+    response = requests_mock.return_value
+    response.json.return_value = {"backdrops": mock_images}
+    movie_id = 1
+    monkeypatch.setattr(tmdb_client.requests, "get", requests_mock)
+    images = tmdb_client.get_movie_images(movie_id)
+    assert images == mock_images
+
+
+def test_get_single_movie(monkeypatch):
+    mock_movie = {"id": 1, "title": "Movie 1"}
+    requsts_mock = Mock()
+    response = requsts_mock.return_value
+    response.json.return_value = mock_movie
+    movie_id = 1
+    monkeypatch.setattr(tmdb_client.requests, "get", requsts_mock)
+    movie = tmdb_client.get_single_movie(movie_id)
+    assert movie == mock_movie
+
+def test_get_single_movie_cast(monkeypatch):
+    mock_cast = {"cast": [{"name": "Actor 1"}, {"name": "Actor 2"}]}
+    requests_mock = Mock()
+    response = requests_mock.return_value
+    response.json.return_value = mock_cast
+    movie_id = 1
+    monkeypatch.setattr(tmdb_client.requests, "get", requests_mock)
+    cast = tmdb_client.get_single_movie_cast(movie_id, lang_code="en-US")
+    assert cast == mock_cast["cast"]
