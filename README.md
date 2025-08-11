@@ -2,10 +2,10 @@
 
 Aplikacja webowa stworzona przy użyciu frameworka Flask, która prezentuje katalog filmów pobieranych z The Movie Database (TMDB) API.
 ## Testy
-![alt text](tests.png)
+![Test](test2.png)
 
 ## Zrzut ekranu
-![alt text](screen.png)
+![Test](screen.png)
 
 
 ## Funkcjonalności
