@@ -1,6 +1,9 @@
 from unittest.mock import Mock
 from .. import tmdb_client
+from .. import main
 from dotenv import load_dotenv
+import pytest
+
 # Wczytuje zmienne z pliku .env i nadpisuje istniejące zmienne systemowe.
 load_dotenv(override=True)
 
@@ -78,3 +81,14 @@ def test_get_single_movie_cast(monkeypatch):
     monkeypatch.setattr(tmdb_client.requests, "get", requests_mock)
     cast = tmdb_client.get_single_movie_cast(movie_id, lang_code="en-US")
     assert cast == mock_cast["cast"]
+
+@pytest.mark.parametrize('list_type', ('popular', 'top_rated', 'upcoming', 'now_playing'))
+def test_homepage(monkeypatch, list_type):
+   api_mock = Mock(return_value={'results': []})
+   monkeypatch.setattr(tmdb_client, "call_tmdb_api", api_mock)
+
+   with main.app.test_client() as client:
+       response = client.get(f'/?list_type={list_type}')
+       assert response.status_code == 200
+       expected_endpoint = f'/movie/{list_type}?language=en-US'
+       api_mock.assert_called_once_with(expected_endpoint)

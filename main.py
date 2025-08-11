@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-import tmdb_client as tmdb_client
+from . import tmdb_client
 from flask import request, redirect, url_for, make_response, g, flash
 from flask_babel import Babel, _
 import datetime
